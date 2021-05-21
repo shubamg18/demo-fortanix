@@ -9,7 +9,7 @@ const SiteHeader = ({ globalData, sitemapNode, page }) => {
   const [open, setOpen] = useState(false);
 
   // set up href for internal links
-  let href = "/pages/[...slug]";
+  //let href = "/pages/[...slug]";
 
   if (!header) {
     return (
@@ -24,7 +24,7 @@ const SiteHeader = ({ globalData, sitemapNode, page }) => {
       <div className="max-w-screen-xl mx-auto">
         <div className="flex justify-between items-center py-6 md:justify-start md:space-x-10">
           <div className="lg:w-0 lg:flex-1">
-            <Link href="/" as="/">
+            <Link href="/" >
               <a className="flex items-center">
                 <img
                   className="h-14 sm:h-20 w-auto z-50"
@@ -65,7 +65,7 @@ const SiteHeader = ({ globalData, sitemapNode, page }) => {
           <nav className="hidden md:flex space-x-10">
             {header.links.map((navitem, index) => {
               return (
-                <Link href={href} key={`mobile-${index}`} as={navitem.path}>
+                <Link key={`mobile-${index}`} href={navitem.path}>
                   <a className="text-base leading-6 font-medium text-secondary-500 hover:text-primary-500 border-transparent border-b-2 hover:border-primary-500 hover:border-b-primary hover:border-b-2 focus:outline-none focus:text-primary-500 transition duration-300">
                     {navitem.title}
                   </a>
@@ -113,7 +113,7 @@ const SiteHeader = ({ globalData, sitemapNode, page }) => {
                 <nav className="grid gap-y-8">
                   {header.links.map((navitem, index) => {
                     return (
-                      <Link key={`nav-${index}`} href={href} as={navitem.path}>
+                      <Link key={`nav-${index}`} href={navitem.path}>
                         <a
                           onClick={() => setOpen(false)}
                           className="-m-3 p-3 flex items-center space-x-3 rounded-md hover:bg-gray-50 transition duration-300"

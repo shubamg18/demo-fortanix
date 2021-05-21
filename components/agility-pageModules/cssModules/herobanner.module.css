@@ -1,0 +1,56 @@
+.heroBanner {
+    padding: 100px 0;
+    background-size: cover  !important;
+    background-position: bottom center !important;
+}
+.heroBannerHeading {
+    font-family: 'Montserrat',sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    text-align: left;
+    margin-bottom: 16px;
+    line-height: 36px;
+    color: #13132A;
+}
+.heroBannerDescription {
+    color: #13132A;
+    font-size: 18px;
+    line-height: 22px;
+    font-family: 'Montserrat',sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    margin-bottom: 24px;
+}
+.heroBannerCTA {
+    height: 36px;
+    line-height: 36px;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 1px 27px 0 27px;
+    box-sizing: border-box;
+    background-color: #00C6DA;
+    display: inline-block;
+    border-radius: 20px;
+    border-width: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    transition: .33s all ease-out;
+    min-width: 225px;
+    text-align: center;
+}
+.heroBannerCTA:hover {
+    background-color: #00838f;
+    color: #fff;
+}
+
+@media only screen and (min-width: 768px) {
+    .heroBannerHeading {
+        font-size: 42px;
+        line-height: 48px;
+    }
+    .heroBannerDescription {
+        font-size: 21px;
+        line-height: 30px;
+    }
+}
