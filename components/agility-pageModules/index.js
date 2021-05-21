@@ -5,6 +5,8 @@ import PostDetails from "./PostDetails";
 import Heading from "./Heading";
 import TextBlockWithImage from "./TextBlockWithImage";
 import HeroBanner from "./HeroBanner";
+import ResourceListing from "./ResourceListing";
+import ResourceDetails from "./ResourceDetails";
 
 // All of the Agility Page Module Components that are in use in this site need to be imported into this index file.
 // Place Page Modules in allModules array below, passing in a name and the component.
@@ -17,6 +19,8 @@ const allModules = [
   { name: "PostDetails", module: PostDetails },
   { name: "RichTextArea", module: RichTextArea },
   { name: "HeroBanner", module: HeroBanner},
+  { name: "ResourceListing", module: ResourceListing},
+  { name: "ResourceDetails", module: ResourceDetails },
 ];
 
 export const getModule = (moduleName) => {

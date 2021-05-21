@@ -8,8 +8,6 @@ const HeroBanner = ({ module }) => {
 
   const bgUrl = fields.backgroundImage.url;
 
-  console.log(fields);
-
   return (
       <div className={styles.heroBanner} style={{ background: `url(${bgUrl})` }}>
           <div className="container mx-auto flex flex-col md:flex-row px-4">

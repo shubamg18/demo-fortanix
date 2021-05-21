@@ -4,6 +4,8 @@ import Image from "next/image";
 
 const PostsListing = ({ module, customData }) => {
   // get posts
+  console.log("Blog:", customData);
+  console.log(module);
   const { posts } = customData;
 
   // set up href for internal links
