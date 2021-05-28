@@ -3,9 +3,6 @@ import { renderHTML } from "@agility/nextjs";
 import Image from "next/image";
 
 const ResourceDetails = ({ dynamicPageItem }) => {
-
-  console.log(dynamicPageItem);
-
   const post = dynamicPageItem.fields;
 
   const content = post.resourceDescription;

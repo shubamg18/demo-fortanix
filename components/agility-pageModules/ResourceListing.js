@@ -4,12 +4,8 @@ import Image from "next/image";
 import styles from "./cssModules/resourcelisting.module.css";
 
 const ResourceListing = ({ module, customData }) => {
-  console.log("Resources:",customData);
-  console.log(module);
   
   const  {resources,categories} = customData;
-  console.log('categories: ', categories);
-
   if (resources.length <= 0) {
     return (
       <div className="mt-44 px-6 flex flex-col items-center justify-center">
@@ -86,10 +82,6 @@ ResourceListing.getCustomInitialProps = async ({
             referenceName: "resourcetypes",
             languageCode,
         });
-
-        console.log('Resourcs:',rawResources);
-
-        console.log(resourceTypes);
 
         // resolve dynamic urls
         const dynamicUrls = resolvePostUrls(sitemap, rawResources);
