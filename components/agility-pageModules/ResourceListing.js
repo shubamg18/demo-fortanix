@@ -105,17 +105,8 @@ ResourceListing.getCustomInitialProps = async ({
             };
         });
 
-        const categories = resourceTypes.map((type) => {
-          const title = type.fields.title;
-
-          return {
-            title
-          }
-        });
-
         return {
-            resources,
-            categories
+            resources
         };
     } catch (error) {
         if (console) console.error(error);
