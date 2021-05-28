@@ -1,0 +1,11 @@
+.resourceCard {
+    cursor: pointer;
+    transition: all .3s ease;
+}
+.resourceCard:hover {
+    transform: scale(1.03);
+}
+.cardImageWrapper {
+    height: 150px;
+    background-size: cover !important;
+}

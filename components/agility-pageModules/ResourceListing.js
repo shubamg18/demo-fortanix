@@ -1,12 +1,15 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import styles from "./cssModules/resourcelisting.module.css";
 
 const ResourceListing = ({ module, customData }) => {
   console.log("Resources:",customData);
   console.log(module);
   
-  const  {resources} = customData;
+  const  {resources,categories} = customData;
+  console.log('categories: ', categories);
+
   if (resources.length <= 0) {
     return (
       <div className="mt-44 px-6 flex flex-col items-center justify-center">
@@ -28,7 +31,15 @@ const ResourceListing = ({ module, customData }) => {
         <div className="sm:grid sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {resources.map((resource, index) => (
               <Link href={resource.slug} key={index}>
-                  {resource.title}
+                  <div className={`${styles.resourceCard} max-w-xs rounded overflow-hidden shadow-lg my-2 resource-card`}>
+                    <div className={styles.cardImageWrapper} style={{ background: `url(${resource.thumbnail.url})` }}></div>
+                    <div className="px-6 py-4">
+                      <div className="uppercase text-primary-500 text-xs font-bold tracking-widest leading-loose">
+                        {resource.category}
+                      </div>
+                      <div className="font-bold text-xl mb-2">{resource.title}</div>
+                    </div>
+                  </div>
               </Link>
           ))}
         </div>
@@ -76,7 +87,7 @@ ResourceListing.getCustomInitialProps = async ({
             languageCode,
         });
 
-        console.log(rawResources);
+        console.log('Resourcs:',rawResources);
 
         console.log(resourceTypes);
 
@@ -86,15 +97,33 @@ ResourceListing.getCustomInitialProps = async ({
         const resources = rawResources.map((resource) => {
             const title = resource.fields.title;
             const slug = dynamicUrls[resource.contentID] || "#";
+            const thumbnail = resource.fields.thumbnail;
+            
+            // categoryID
+            const categoryID = resource.fields.category?.contentid;
+
+            // find category
+            const category = resourceTypes?.find((c) => c.contentID == categoryID);
 
             return {
                 title,
-                slug
+                slug,
+                thumbnail,
+                category : category.fields.title
             };
+        });
+
+        const categories = resourceTypes.map((type) => {
+          const title = type.fields.title;
+
+          return {
+            title
+          }
         });
 
         return {
             resources,
+            categories
         };
     } catch (error) {
         if (console) console.error(error);
